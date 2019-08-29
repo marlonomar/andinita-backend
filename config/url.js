@@ -1,3 +1,3 @@
-var urlGlobal = 'http://localhost:3000';
+var urlGlobal = 'https://andinita-serse.herokuapp.com';
 
 module.exports = urlGlobal;
