@@ -2,7 +2,7 @@
 
 const express = require('express');
 const app = express();
-
+const url = require('./config/url');
 //BODY PARSER
 const bodyParser = require('body-parser');
 
@@ -10,13 +10,14 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 // Configurar cabeceras y cors
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-    next();
-});
+
+app.options(url, function(req, res, next){
+    res.header('Access-Control-Allow-Origin', "*");
+    res.header('Access-Control-Allow-Methods', 'POST');
+    res.header("Access-Control-Allow-Headers", "accept, content-type");
+    res.header("Access-Control-Max-Age", "1728000");
+    return res.sendStatus(200);
+ });
 
 //ROUTES
 let producto =require('./routes/Productos');
