@@ -6,11 +6,11 @@ const secret = 'soyUnToken:3';
 
 exports.ensureAuth = function(req,res,next){
 
-    if(!req.headers.Authorization){
-        return res.status(403).send({success: false, error : 'no existe la cabezera Authorization'});
+    if(!req.headers.autorization){
+        return res.status(403).send({success: false, error : 'no existe la cabezera autorization'});
     }
 
-    var token = req.headers.Authorization.replace(/['"]+/g,'');
+    var token = req.headers.autorization.replace(/['"]+/g,'');
 
     try{
         var payload = jwt.decode(token ,secret);
