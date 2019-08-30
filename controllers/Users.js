@@ -182,7 +182,7 @@ function reactiveUser(req,res){
 }
 
 function getUser(req,res){
-    let id = req.params.id;
+    let id = req.user.sub;
     User.find({_id : id}).exec((err,user)=>{
 
        if(user){

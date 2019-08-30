@@ -10,7 +10,7 @@ const multipartMiddelware = multipart({uploadDir:'./images'});
 
 
 api.get('/show-users',token,userController.getActiveUsers);
-api.get('/user/:id',token,userController.getUser);
+api.get('/user',token,userController.getUser);
 api.get('/deleted-users',token,userController.getDeleteUsers);
 api.get('/show-all-users/:page?',token,userController.getAllUsers);
 api.get('/get-image-user/:imageFile',token,userController.getImage);
