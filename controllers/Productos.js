@@ -59,7 +59,8 @@ function createProducto (req,res){
         title : body.title,
         description : body.description,
         price : body.price,
-        typeProduct : body.typeProduct
+        typeProduct : body.typeProduct,
+        image : body.image
     });
 
     producto.save((err,producto)=>{
