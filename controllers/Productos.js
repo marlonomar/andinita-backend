@@ -23,6 +23,24 @@ function getProductos(req,res){
           })
 }
 
+function getTypeProductos(req,res){
+
+    let body = req.body;
+    let type = body.type;
+
+    Producto.find({ typeProduct : type })
+          .exec((err,productos)=>{
+              if(err){
+                error (res,err)
+              }
+
+              return res.send({
+                  success: true,
+                  productos
+              })
+          })
+}
+
 function getProducto(req,res){
     let id = req.params.id;
     Producto.find({_id : id}).exec((err,producto)=>{
@@ -180,5 +198,6 @@ module.exports ={
     availableProducto,
     uploadPhotoProducto,
     getImage,
-    getProducto
+    getProducto,
+    getTypeProductos
 }
