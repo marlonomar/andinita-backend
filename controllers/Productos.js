@@ -25,18 +25,17 @@ function getProductos(req,res){
 
 function getTypeProductos(req,res){
 
-    let body = req.body;
-    let type = body.type;
+    let type = req.params.type;
 
     Producto.find({ typeProduct : type })
-          .exec((err,productos)=>{
+          .exec((err,producto)=>{
               if(err){
-                error (res,err)
+                return error (res,err);
               }
 
               return res.send({
                   success: true,
-                  productos
+                  producto
               })
           })
 }
