@@ -6,7 +6,7 @@ const multipartMiddelware = multipart({uploadDir:'./images'});
 
 api.get('/producto',productosControllers.getProductos);
 api.get('/image/:image',productosControllers.getImage);
-api.get('get-type-producto/:type',productosControllers.getTypeProductos);
+api.get('/get-type-producto/:type',productosControllers.getTypeProductos);
 api.get('/get-producto/:id',productosControllers.getProducto);
 api.post('/new-producto',productosControllers.createProducto);
 api.post('/upload-file/:id',multipartMiddelware , productosControllers.uploadPhotoProducto);
