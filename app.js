@@ -21,10 +21,12 @@ app.use((req, res, next) => {
 //ROUTES
 let producto =require('./routes/Productos');
 let users = require('./routes/User');
+let buy = require('./routes/Buy');
 
 //RUTAS
 app.use('/productos',producto);
 app.use('/Users',users);
+app.use('/Buy',buy);
 
 //Canal del servidor
 
